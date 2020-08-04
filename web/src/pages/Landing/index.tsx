@@ -16,7 +16,7 @@ function Landing() {
           <img src={logoImg} alt="Proffy" />
           <h2>Sua plataforma de estudo online.</h2>
         </div>
-      </div>
+
       <img
         src={landingImg}
         alt="Plataforma de estudos"
@@ -27,11 +27,11 @@ function Landing() {
           <img src={studyIcon} alt="Estudar" />
           Estudar
         </a>
-        <a href="" className="study">
-          <img src={giveClassesIcon} alt="Ensinar" />
-          Ensinar
+        <a href="" className="give-classes">
+          <img src={giveClassesIcon} alt="dar aulas" />
+          Dar aulas
         </a>
-
+      </div>
         <span className="total-connections">
           Total de 200 conexões já realizadas{" "}
           <img src={purpleHeartIcon} alt="Coração Roxo" />
