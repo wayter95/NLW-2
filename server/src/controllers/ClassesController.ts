@@ -25,12 +25,12 @@ export default class ClassesController {
 
     const classes = await db("classes")
       .whereExists(function () {
-        this.select("classes_schedule.*")
-          .from("classes_schedule")
-          .whereRaw("`classes_schedule`.`class_id` = `classes`.`id`")
-          .whereRaw("`classes_schedule`.`week_day` = ?? ", [Number(week_day)])
-          .whereRaw("`classes_schedule`.`from`<= ??", [timeinMinutes])
-          .whereRaw("`classes_schedule`.`to` > ??", [timeinMinutes]);
+        this.select("class_schedule.*")
+          .from("class_schedule")
+          .whereRaw("`class_schedule`.`class_id` = `classes`.`id`")
+          .whereRaw("`class_schedule`.`week_day` = ?? ", [Number(week_day)])
+          .whereRaw("`class_schedule`.`from`<= ??", [timeinMinutes])
+          .whereRaw("`class_schedule`.`to` > ??", [timeinMinutes]);
       })
       .where("classes.subject", "=", subject)
       .join("users", "classes.user_id", "=", "users.id")
@@ -78,7 +78,7 @@ export default class ClassesController {
         };
       });
 
-      await trx("classes_schedule").insert(clasSchedules);
+      await trx("class_schedule").insert(clasSchedules);
 
       await trx.commit();
 
